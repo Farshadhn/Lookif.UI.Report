@@ -1,0 +1,68 @@
+﻿@namespace Lookif.UI.Report.Main.Extras
+@using Lookif.UI.Component.TreeShape.Component
+
+<div id="EntityHolder" class="w-75">
+    @if (listOfEntites == null)
+    {
+        <p><em>درحال بارگزاری  پدیده ها...</em></p>
+    }
+    else
+    {
+        <div style="height:20vh;overflow-y:auto;width: 80vw;">
+            @foreach (var entity in listOfEntites)
+            {
+                @*
+                    () => SelectEntity(entity.PropertyTypeName)
+                    beacause they all have specific type, I mean they all have their tables.
+                *@
+                <button @onclick='() => SelectEntity(entity.PropertyName)' class="btn btn-info m-2 col-2">
+                    @entity.PropertyDisplayName
+                </button>
+            }
+        </div>
+    }
+</div>
+@if (Entity is not null)
+{
+    //It Has to be Named Selected
+    <div class="mt-2" style="height:40vh;overflow-y:auto;direction: rtl;text-align: right;">
+        <CascadingValue Value="Selected">
+            <TreeComponent Item=@Entity Parent="@Entity" />
+        </CascadingValue>
+    </div>
+}
+else
+{
+    <figure class="text-center mt-4">
+        <blockquote class="blockquote">
+            <p style="border:solid">
+                لطفا پدیده مورد نظر را انتخاب نمایید
+            </p>
+        </blockquote>
+
+    </figure>
+
+}
+<button @onclick="Close">
+    ساخت کد!
+
+</button>
+
+
+
+<style>
+    ul {
+        list-style-type: none;
+        padding: 8px 16px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    ul li {
+        padding: 8px 16px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    ul li:last-child {
+        border-bottom: none
+    }
+</style>

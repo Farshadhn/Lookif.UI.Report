@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Authors>Farshad Hosseini nejad</Authors>
+    <Company>Lookif</Company>
+    <Description>This library is here to help you create dynamic reports..</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazored.Modal" Version="6.0.1" />
+    <PackageReference Include="Lookif.UI.Component" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Pluralize.NET.Core" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
